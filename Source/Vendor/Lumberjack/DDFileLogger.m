@@ -107,7 +107,7 @@
 	
 	if ([keyPath isEqualToString:@"maximumNumberOfLogFiles"])
 	{
-		DDLogWarnInfo(@"DDFileLogManagerDefault: Responding to configuration change: maximumNumberOfLogFiles");
+		NSLog(@"DDFileLogManagerDefault: Responding to configuration change: maximumNumberOfLogFiles");
 		
 		dispatch_async([DDLog loggingQueue], ^{ @autoreleasepool {
 			
@@ -170,7 +170,7 @@
 	{
 		DDLogFileInfo *logFileInfo = [sortedArchivedLogFileInfos objectAtIndex:i];
 		
-		DDLogWarnInfo(@"DDLogFileManagerDefault: Deleting file: %@", logFileInfo.fileName);
+		NSLog(@"DDLogFileManagerDefault: Deleting file: %@", logFileInfo.fileName);
 		
 		[[NSFileManager defaultManager] removeItemAtPath:logFileInfo.filePath error:nil];
 	}

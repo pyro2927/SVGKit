@@ -797,9 +797,9 @@ static DDTTYLogger *sharedInstance;
 			}
 		}
 		
-		DDLogWarnInfo(@"DDTTYLogger: isaColorTTY = %@", (isaColorTTY ? @"YES" : @"NO"));
-		DDLogWarnInfo(@"DDTTYLogger: isaColor256TTY: %@", (isaColor256TTY ? @"YES" : @"NO"));
-		DDLogWarnInfo(@"DDTTYLogger: isaXcodeColorTTY: %@", (isaXcodeColorTTY ? @"YES" : @"NO"));
+		NSLog(@"DDTTYLogger: isaColorTTY = %@", (isaColorTTY ? @"YES" : @"NO"));
+		NSLog(@"DDTTYLogger: isaColor256TTY: %@", (isaColor256TTY ? @"YES" : @"NO"));
+		NSLog(@"DDTTYLogger: isaXcodeColorTTY: %@", (isaXcodeColorTTY ? @"YES" : @"NO"));
 		
 		sharedInstance = [[DDTTYLogger alloc] init];
 	}
@@ -939,7 +939,7 @@ static DDTTYLogger *sharedInstance;
 		                                                        flag:mask
 		                                                     context:ctxt];
 		
-		DDLogWarnInfo(@"DDTTYLogger: newColorProfile: %@", newColorProfile);
+		NSLog(@"DDTTYLogger: newColorProfile: %@", newColorProfile);
 		
 		NSUInteger i = 0;
 		for (DDTTYLoggerColorProfile *colorProfile in colorProfilesArray)
@@ -988,7 +988,7 @@ static DDTTYLogger *sharedInstance;
 		                                                        flag:0
 		                                                     context:0];
 		
-		DDLogWarnInfo(@"DDTTYLogger: newColorProfile: %@", newColorProfile);
+		NSLog(@"DDTTYLogger: newColorProfile: %@", newColorProfile);
 		
 		[colorProfilesDict setObject:newColorProfile forKey:tag];
 	}};
