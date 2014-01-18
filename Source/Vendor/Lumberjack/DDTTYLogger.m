@@ -745,7 +745,7 @@ static DDTTYLogger *sharedInstance;
 			bestIndex = i;
 			lowestDistance = distance;
 			
-			DDLogWarnVerbose(@"DDTTYLogger: New best index = %lu", (unsigned long)bestIndex);
+			
 		}
 		
 		i++;

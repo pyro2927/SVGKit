@@ -150,7 +150,7 @@
 				 
 				 For now: we simply "do nothing but set everything to nil"
 				 */
-				DDLogWarn( @"SVGElement has had its parent set to nil; this makes the element and tree beneath it no-longer-valid SVG data; this may require fix-up if you try to re-add that SVGElement or any of its children back to an existing/new SVG tree");
+				
 				self.rootOfCurrentDocumentFragment = nil;
 			}
 			else
@@ -342,7 +342,7 @@
 			}
 			else if( [command isEqualToString:@"skewX"] )
 			{
-				DDLogWarn(@"[%@] ERROR: skew is unsupported: %@", [self class], command );
+				
 				
 				[parseResult addParseErrorRecoverable: [NSError errorWithDomain:@"SVGKit" code:15184 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 																			   @"transform=skewX is unsupported", NSLocalizedDescriptionKey,
@@ -351,7 +351,7 @@
 			}
 			else if( [command isEqualToString:@"skewY"] )
 			{
-				DDLogWarn(@"[%@] ERROR: skew is unsupported: %@", [self class], command );
+				
 				[parseResult addParseErrorRecoverable: [NSError errorWithDomain:@"SVGKit" code:15184 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 																			   @"transform=skewY is unsupported", NSLocalizedDescriptionKey,
 																			   nil]

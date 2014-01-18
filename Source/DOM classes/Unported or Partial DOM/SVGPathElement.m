@@ -157,7 +157,7 @@
 																		 withPrevCurve:lastCurve];
                         lastCoordinate = lastCurve.p;
                     } else {
-                        DDLogWarn(@"unsupported command %@", command);
+                        
                     }
                 }
             }

@@ -206,7 +206,7 @@
 		
 		else
 		{
-			DDLogWarn(@"Found unexpected preserve-aspect-ratio command inside element's 'preserveAspectRatio' attribute. Command = '%@'", aspectRatioCommand );
+			
 		}
 	}
 

@@ -114,8 +114,8 @@
 						
 						double ratioOfRatios = svgSVGElement.aspectRatioFromWidthPerHeight / svgSVGElement.aspectRatioFromViewBox;
 						
-						DDLogWarn(@"rationOfRatios = %.2f", ratioOfRatios );
-						DDLogWarn(@"Experimental: auto-scaling viewbox transform to fulfil SVG spec's default MEET settings, because your SVG file has different aspect-ratios for viewBox and for svg.width,svg.height");
+						
+						
 						
 						/**
 						 For MEET, we have to SHRINK the viewbox's contents if they aren't as wide:high as the viewport:
@@ -208,7 +208,7 @@
 					}
 				}	
 				else
-					DDLogWarn( @"Unsupported: preserveAspectRatio set to SLICE. Code to handle this doesn't exist yet.");
+					
 				
 				transformSVGViewportToSVGViewBox = CGAffineTransformConcat( translateToViewBox, scaleToViewBox );
 			}

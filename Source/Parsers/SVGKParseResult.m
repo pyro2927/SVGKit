@@ -45,13 +45,13 @@
 
 -(void) addParseWarning:(NSError*) warning
 {
-	DDLogWarn(@"[%@] SVG WARNING: %@", [self class], warning);
+	
 	[self.warnings addObject:warning];
 }
 
 -(void) addParseErrorRecoverable:(NSError*) recoverableError
 {
-	DDLogWarn(@"[%@] SVG WARNING (recoverable): %@", [self class], recoverableError);
+	
 	[self.errorsRecoverable addObject:recoverableError];
 }
 
@@ -63,7 +63,7 @@
 
 -(void) addSAXError:(NSError*) saxError
 {
-	DDLogWarn(@"[%@] SVG ERROR: %@", [self class], [saxError localizedDescription]);
+	
 	[self.errorsFatal addObject:saxError];
 }
 

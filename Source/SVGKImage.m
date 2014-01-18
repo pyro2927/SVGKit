@@ -584,7 +584,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 		
 		if( currentLayer.superlayer == nil )
 		{
-			DDLogWarn(@"AWOOGA: layer %@ has no superlayer!", originalLayer );
+			
 		}
 		
 		while( currentLayer.superlayer != nil )

@@ -261,10 +261,10 @@ readPacket(char *mem, int size) {
 				}
 				else
 				{
-					DDLogWarn(@"[%@] SVG parser generated one or more FATAL errors (not the XML parser), errors follow:", [self class] );
+					
 					for( NSError* error in currentParseRun.errorsFatal )
 					{
-						DDLogWarn(@"[%@] ... FATAL ERRRO in SVG parse: %@", [self class], error );
+						
 					}
 				}
 				
@@ -322,7 +322,7 @@ readPacket(char *mem, int size) {
         
         if( cssText == nil )
         {
-            DDLogWarn(@"[%@] Unable to find external CSS file '%@'", [self class], href );
+            
         }
         else
         {
