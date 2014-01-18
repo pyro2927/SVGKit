@@ -1,6 +1,5 @@
 Pod::Spec.new do |s|
   s.name        = 'SVGKit'
-  s.requires_arc = true
   s.version     = '1.x'
   s.license     = 'MIT'
   s.platform    = :ios, '7.0'
