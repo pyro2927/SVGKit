@@ -117,7 +117,7 @@ static unsigned int numProcessors;
 		
 		loggers = [[NSMutableArray alloc] initWithCapacity:4];
 		
-		DDLogWarnDebug(@"DDLog: Using grand central dispatch");
+		NSLog(@"DDLog: Using grand central dispatch");
 		
 		loggingQueue = dispatch_queue_create("cocoa.lumberjack", NULL);
 		loggingGroup = dispatch_group_create();
@@ -141,7 +141,7 @@ static unsigned int numProcessors;
 		
 		numProcessors = MAX(result, one);
 		
-		DDLogWarnDebug(@"DDLog: numProcessors = %u", numProcessors);
+		NSLog(@"DDLog: numProcessors = %u", numProcessors);
 			
 		
 	#if TARGET_OS_IPHONE
@@ -564,7 +564,7 @@ static unsigned int numProcessors;
 	
 	if (loggerNode == nil)
 	{
-		DDLogWarnDebug(@"DDLog: Request to remove logger which wasn't added");
+		NSLog(@"DDLog: Request to remove logger which wasn't added");
 		return;
 	}
 	
