@@ -737,9 +737,6 @@ static DDTTYLogger *sharedInstance;
 		CGFloat distance = sqrtf(powf(r-inR, 2.0f) + powf(g-inG, 2.0f) + powf(b-inB, 2.0f));
 	#endif
 		
-		DDLogWarnVerbose(@"DDTTYLogger: %3lu : %.3f,%.3f,%.3f & %.3f,%.3f,%.3f = %.6f",
-					 (unsigned long)i, inR, inG, inB, r, g, b, distance);
-		
 		if (distance < lowestDistance)
 		{
 			bestIndex = i;
