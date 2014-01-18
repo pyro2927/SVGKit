@@ -194,7 +194,7 @@
 {
 	if( [keyPath isEqualToString:@"transform"] &&  CGSizeEqualToSize( CGSizeZero, self.tileRatio ) )
 	{
-		/*DDLogVerbose(@"transform changed. Setting layer scale: %2.2f --> %2.2f", self.layer.contentsScale, self.transform.a);
+		/*
 		 self.layer.contentsScale = self.transform.a;*/
 		[self.image.CALayerTree removeFromSuperlayer]; // force apple to redraw?
 		[self setNeedsDisplay];
@@ -273,7 +273,7 @@
 		tileSize = CGSizeMake( self.bounds.size.width / self.tileRatio.width, self.bounds.size.height / self.tileRatio.height );
 	}
 	
-	//DEBUG: DDLogVerbose(@"cols, rows: %i, %i ... scaleConvert: %@ ... tilesize: %@", cols, rows, NSStringFromCGSize(scaleConvertImageToView), NSStringFromCGSize(tileSize) );
+	//DEBUG: 
 	/** To support tiling, and to allow internal shrinking, we use renderInContext */
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	for( int k=0; k<rows; k++ )

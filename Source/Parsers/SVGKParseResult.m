@@ -39,7 +39,7 @@
 }
 -(void) addSourceError:(NSError*) fatalError
 {
-	DDLogError(@"[%@] SVG ERROR: %@", [self class], fatalError);
+	
 	[self.errorsRecoverable addObject:fatalError];
 }
 
@@ -57,7 +57,7 @@
 
 -(void) addParseErrorFatal:(NSError*) fatalError
 {
-	DDLogError(@"[%@] SVG ERROR: %@", [self class], fatalError);
+	
 	[self.errorsFatal addObject:fatalError];
 }
 

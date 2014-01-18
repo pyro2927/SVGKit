@@ -76,7 +76,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 {
 	if ([globalSVGKImageCache count] == 0) return;
 	
-	DDLogCWarn(@"[%@] Low-mem or background; purging cache of %lu SVGKImages...", self, (unsigned long)[globalSVGKImageCache count] );
+	
 	
 	[globalSVGKImageCache removeAllObjects]; // once they leave the cache, if they are no longer referred to, they should automatically dealloc
 }
@@ -122,7 +122,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 	if( pathToFileInBundle == nil
 	   && pathToFileInDocumentsFolder == nil )
 	{
-		DDLogCWarn(@"[%@] MISSING FILE (not found in App-bundle, not found in Documents folder), COULD NOT CREATE DOCUMENT: filename = %@, extension = %@", [self class], newName, extension);
+		
 		return nil;
 	}
 	
@@ -253,7 +253,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	/** Remove and release (if appropriate) all cached render-output */
-	DDLogVerbose(@"[%@] source data changed; de-caching cached data", [self class] );
+	
 	self.CALayerTree = nil;
 }
 
@@ -282,7 +282,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 		
 		if ( self.DOMDocument == nil )
 		{
-			DDLogError(@"[%@] ERROR: failed to init SVGKImage with source = %@, returning nil from init methods", [self class], source );
+			
 			self = nil;
 		}
 		
@@ -544,7 +544,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 	
 	if( originalLayer == nil )
 	{
-		DDLogError(@"[%@] ERROR: requested a clone of CALayer with id = %@, but there is no layer with that identifier in the parsed SVG layer stack", [self class], identifier );
+		
 		return nil;
 	}
 	else
@@ -589,10 +589,10 @@ static NSMutableDictionary* globalSVGKImageCache;
 		
 		while( currentLayer.superlayer != nil )
 		{
-			//DEBUG: DDLogVerbose(@"shifting (%2.2f, %2.2f) to accomodate offset of layer = %@ inside superlayer = %@", currentLayer.superlayer.frame.origin.x, currentLayer.superlayer.frame.origin.y, currentLayer, currentLayer.superlayer );
+			//DEBUG: 
 			
 			currentLayer = currentLayer.superlayer;
-			//DEBUG: DDLogVerbose(@"...next superlayer in positioning absolute = %@, %@", currentLayer, NSStringFromCGRect(currentLayer.frame));
+			//DEBUG: 
 			xOffset += currentLayer.frame.origin.x;
 			yOffset += currentLayer.frame.origin.y;
 		}
@@ -609,7 +609,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 {
 	CALayer *layer = [element newLayer];
 	
-	//DEBUG: DDLogVerbose(@"[%@] DEBUG: converted SVG element (class:%@) to CALayer (class:%@ frame:%@ pointer:%@) for id = %@", [self class], NSStringFromClass([element class]), NSStringFromClass([layer class]), NSStringFromCGRect( layer.frame ), layer, element.identifier);
+	//DEBUG: 
 	
 	NodeList* childNodes = element.childNodes;
 	
@@ -704,15 +704,15 @@ static NSMutableDictionary* globalSVGKImageCache;
 {
 	if( CALayerTree == nil )
 	{
-		DDLogInfo(@"[%@] WARNING: no CALayer tree found, creating a new one (will cache it once generated)", [self class] );
+		
 
 		NSDate* startTime = [NSDate date];
 		self.CALayerTree = [[self newCALayerTree] autorelease];
 		
-		DDLogInfo(@"[%@] ...time taken to convert from DOM to fresh CALayers: %2.3f seconds)", [self class], -1.0f * [startTime timeIntervalSinceNow] );		
+				
 	}
 	else
-		DDLogVerbose(@"[%@] rendering to CGContext: re-using cached CALayers (FREE))", [self class] );
+		
 	
 	return CALayerTree;
 }
@@ -734,7 +734,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 		
 		if( subLayerID != nil )
 		{
-			DDLogVerbose(@"[%@] element id: %@ => layer: %@", [self class], subLayerID, subLayer);
+			
 			
 			[self addSVGLayerTree:subLayer withIdentifier:subLayerID toDictionary:layersByID];
 			
@@ -751,7 +751,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 	
 	[self addSVGLayerTree:rootLayer withIdentifier:self.DOMTree.identifier toDictionary:layersByElementId];
 	
-	DDLogVerbose(@"[%@] ROOT element id: %@ => layer: %@", [self class], self.DOMTree.identifier, rootLayer);
+	
 	
     return layersByElementId;
 }
